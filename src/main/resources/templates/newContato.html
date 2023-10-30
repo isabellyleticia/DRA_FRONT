@@ -7,29 +7,43 @@
 </head>
 
 <body>
-	<form action="#" th:action="@{/inserirContato}" th:object="${contato}" method="post">
+	<form action="#" th:action="@{/addContato}" th:object="${contato}" method="post">
 		<label for="nome">Nome</label>
-		<input type="text" th:field="{nome}" id="nome" placeholder="Nome">
+		<input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
+		<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+		<br>
 
-		<label for="email">E-mail</label>
-		<input type="text" th:field="{email}" id="email" placeholder="E-mail">
+		<label for="email">E-Mail</label>
+		<input type="text" th:field="*{email}" id="email" placeholder="E-Mail">
+		<span th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+		<br>
 
 		<label for="telefone">Telefone</label>
-		<input type="text" th:field="{telefone}" id="telefone" placeholder="Telefone">
+		<input type="text" th:field="*{telefone}" id="telefone" placeholder="Telefone">
+		<span th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></span>
+		<br>
 
 		<label for="endereco">Endereço</label>
-		<input type="text" th:field="{endereco}" id="endereco" placeholder="Endereço">
+		<input type="text" th:field="*{endereco}" id="endereco" placeholder="Endereço">
+		<span th:if="${#fields.hasErrors('endereco')}" th:errors="*{endereco}"></span>
+		<br>
 
 		<label for="bairro">Bairro</label>
-		<input type="text" th:field="{bairro}" id="bairro" placeholder="Bairro">
+		<input type="text" th:field="*{bairro}" id="bairro" placeholder="Bairro">
+		<span th:if="${#fields.hasErrors('bairro')}" th:errors="*{bairro}"></span>
+		<br>
 
 		<label for="cidade">Cidade</label>
-		<input type="text" th:field="{cidade}" id="cidade" placeholder="Cidade">
+		<input type="text" th:field="*{cidade}" id="cidade" placeholder="Cidade">
+		<span th:if="${#fields.hasErrors('cidade')}" th:errors="*{cidade}"></span>
+		<br>
 
 		<label for="estado">Estado</label>
-		<input type="text" th:field="{estado}" id="estado" placeholder="Estado">
+		<input type="text" th:field="*{estado}" id="estado" placeholder="Estado">
+		<span th:if="${#fields.hasErrors('estado')}" th:errors="*{estado}"></span>
+		<br>
 
-		<input type="submit" value="Inserir Contato">
+		<input type="submit" value="Adicionar Contato">
 	</form>
 </body>
 
