@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html xmlns:th='http://www.thymeleaf.org'>
+
+<head>
+	<title>Getting Started: Serving Web Content</title>
+	<meta http-equip='Content-Type' content='text/html; charset = UTF8' />
+	<style>
+		:root {
+			--background-color: #000;
+			--text-color: #fff;
+			--table-background: #222;
+			--table-alternate: #333;
+		}
+
+		body {
+			background-color: var(--background-color);
+			color: var(--text-color);
+			font-family: Arial, sans-serif;
+		}
+
+		h2 {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		table {
+			background-color: var(--table-background);
+			width: 80%;
+			margin: 0 auto;
+			border-collapse: collapse;
+		}
+
+		th,
+		td {
+			padding: 8px;
+			text-align: left;
+		}
+
+		tr:nth-child(even) {
+			background-color: var(--table-alternate);
+		}
+
+		.align-middle {
+			vertical-align: middle;
+		}
+	</style>
+</head>
+
+<body>
+	<h2>Lista de Contatos</h2>
+	<div th:unless='${#lists.isEmpty(contatos)}'>
+		<table>
+			<tr>
+				<th>Nome</th>
+				<th>Email</th>
+				<th>Telefone</th>
+				<th>Endereço</th>
+			</tr>
+			<tr th:each="contato : ${contatos}">
+				<td class="align-middle" th:text="${contato.nome}"></td>
+				<td class="align-middle" th:text="${contato.email}"></td>
+				<td class="align-middle" th:text="${contato.telefone}"></td>
+				<td class="align-middle" th:text="${contato.endereco}"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+
+<head>
+	<title>Novo Contato</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+	<form action="#" th:action="@{/inserirContato}" th:object="${contato}" method="post">
+		<label for="nome">Nome</label>
+		<input type="text" th:field="{nome}" id="nome" placeholder="Nome">
+
+		<label for="email">E-mail</label>
+		<input type="text" th:field="{email}" id="email" placeholder="E-mail">
+
+		<label for="telefone">Telefone</label>
+		<input type="text" th:field="{telefone}" id="telefone" placeholder="Telefone">
+
+		<label for="endereco">Endereço</label>
+		<input type="text" th:field="{endereco}" id="endereco" placeholder="Endereço">
+
+		<label for="bairro">Bairro</label>
+		<input type="text" th:field="{bairro}" id="bairro" placeholder="Bairro">
+
+		<label for="cidade">Cidade</label>
+		<input type="text" th:field="{cidade}" id="cidade" placeholder="Cidade">
+
+		<label for="estado">Estado</label>
+		<input type="text" th:field="{estado}" id="estado" placeholder="Estado">
+
+		<input type="submit" value="Inserir Contato">
+	</form>
+</body>
+
+</html>
