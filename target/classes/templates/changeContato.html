@@ -2,7 +2,7 @@
 <html xmlns="http://www.thymeleaf.org">
 
 <head>
-	<title>Novo Contato</title>
+	<title>Alterar Contato</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<style>
 		:root {
@@ -13,6 +13,8 @@
 			--button-background-color: rgb(30, 144, 255);
 			--button-text-color: rgb(255, 255, 255);
 			--button-hover-color: rgb(13, 92, 182);
+			--button-background-secondary-color: rgb(255, 21, 21);
+			--button-hover-secondary-color: rgb(200, 0, 0);
 		}
 
 		body {
@@ -55,6 +57,21 @@
 		input[type="submit"]:hover {
 			background-color: var(--button-hover-color);
 		}
+
+		.btn {
+			background-color: var(--button-background-secondary-color);
+			color: var(--button-text-color);
+			padding: 10px 20px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			display: inline-block;
+			margin-right: 10px;
+		}
+
+		.btn:hover {
+			background-color: var(--button-hover-secondary-color);
+		}
 	</style>
 
 	<script>
@@ -70,8 +87,8 @@
 </head>
 
 <body>
-	<h1>Novo Contato</h1>
-	<form action="#" th:action="@{/contato}" th:object="${contato}" th:method="post">
+	<h1>Alterar Contato</h1>
+	<form action="#" th:action="@{'/contato/{id}'(id=${contato.id})}" th:object="${contato}" th:method="put">
 		<label for="nome">Nome</label>
 		<input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
 		<span class="mensagem_vazia" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
@@ -108,7 +125,18 @@
 		<br>
 		<br>
 
-		<input type="submit" value="Adicionar Contato">
+		<table>
+			<tr>
+				<td>
+					<input type="submit" class="btn" value="Alterar Contato">
+				</td>
+				<td>
+					<form action="#" th:action="@{'/contato'}" th:method="get">
+						<button type="submit" class="btn">Cancelar</button>
+					</form>
+				</td>
+			</tr>
+		</table>
 	</form>
 </body>
 

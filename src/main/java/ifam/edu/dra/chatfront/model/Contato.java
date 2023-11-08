@@ -9,6 +9,7 @@ public class Contato {
 
 	@NotBlank(message = "O campo do Nome não deve ficar vazio!")
 	private String nome;
+	@NotBlank
 	@Email(message = "Digite um email válido")
 	private String email;
 	@NotBlank(message = "O campo do Telefone não deve ficar vazio!")

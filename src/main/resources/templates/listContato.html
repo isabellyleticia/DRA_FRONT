@@ -80,6 +80,10 @@
 <body>
 	<h1>Lista de Contatos</h1>
 	<div th:unless='${#lists.isEmpty(contatos)}'>
+		<form action="#" th:action="@{'/contato/new'}" th:method="get">
+						<button type="submit" class= "btn">New Contato</button>
+					</form>
+		
 		<table>
 			<tr>
 				<th>Nome</th>

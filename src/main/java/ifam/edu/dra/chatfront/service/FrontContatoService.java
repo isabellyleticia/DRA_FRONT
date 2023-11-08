@@ -64,8 +64,13 @@ public class FrontContatoService {
 	public void deleteContato(Long id) {
 		RestTemplate restTemplate = new RestTemplate();
 
-		String url = backendUrl + "/" + Long.toString(id);
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Accept", MediaType.APPLICATION_JSON_VALUE);
+		headers.setContentType(MediaType.APPLICATION_JSON);
 
-		restTemplate.delete(url);
+		HttpEntity<Contato> requestBody = new HttpEntity<>(new Contato(), headers);
+
+		String url = backendUrl + "/" + Long.toString(id);
+		ResponseEntity<Contato> response = restTemplate.exchange(url, HttpMethod.DELETE, requestBody, Contato.class);
 	}
 }
