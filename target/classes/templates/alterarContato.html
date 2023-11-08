@@ -70,8 +70,7 @@
 </head>
 
 <body>
-	<h1>Novo Contato</h1>
-	<form action="#" th:action="@{/contato}" th:object="${contato}" th:method="post">
+	<form action="#" th:action="@{/contato}" th:object="${contato}" method="post">
 		<label for="nome">Nome</label>
 		<input type="text" th:field="*{nome}" id="nome" placeholder="Nome">
 		<span class="mensagem_vazia" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
@@ -108,7 +107,11 @@
 		<br>
 		<br>
 
-		<input type="submit" value="Adicionar Contato">
+		<input type="submit" value="Alterar Contato">
+	</form>
+	<br>
+	<form action="#" th:action="@{'/contato'}" th:method="get"><button type="submit"
+							class="btn">Cancelar</button>
 	</form>
 </body>
 

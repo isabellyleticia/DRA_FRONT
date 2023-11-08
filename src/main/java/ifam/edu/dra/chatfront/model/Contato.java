@@ -7,19 +7,19 @@ public class Contato {
 
 	private Long id;
 
-	@NotBlank
+	@NotBlank(message = "O campo do Nome não deve ficar vazio!")
 	private String nome;
-	@Email
+	@Email(message = "Digite um email válido")
 	private String email;
-	@NotBlank
+	@NotBlank(message = "O campo do Telefone não deve ficar vazio!")
 	private String telefone;
-	@NotBlank
+	@NotBlank(message = "O campo do Endereço não deve ficar vazio!")
 	private String endereco;
-	@NotBlank
+	@NotBlank(message = "O campo do Bairro não deve ficar vazio!")
 	private String bairro;
-	@NotBlank
+	@NotBlank(message = "O campo do Cidade não deve ficar vazio!")
 	private String cidade;
-	@NotBlank
+	@NotBlank(message = "O campo do Estado não deve ficar vazio!")
 	private String estado;
 
 	public Long getId() {

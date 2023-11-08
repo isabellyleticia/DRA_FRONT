@@ -10,6 +10,11 @@
 			--text-color: rgb(0, 0, 0);
 			--table-background: rgb(192, 192, 192);
 			--table-alternate: rgb(166, 166, 166);
+			--button-background-color: rgb(30, 144, 255);
+			--button-text-color: rgb(255, 255, 255);
+			--button-hover-color: rgb(13, 92, 182);
+			--button-background-secondary-color: rgb(255, 21, 21);
+			--button-hover-secondary-color: rgb(200, 0, 0);
 		}
 
 		body {
@@ -43,11 +48,37 @@
 		.align-middle {
 			vertical-align: middle;
 		}
+		
+		.btn_excluir {
+			background-color: var(--button-background-secondary-color);
+			color: var(--button-text-color);
+			padding: 5px 10px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.btn_excluir:hover {
+			background-color: var(--button-hover-secondary-color);
+		}
+		
+		.btn_alterar {
+			background-color: var(--button-background-color);
+			color: var(--button-text-color);
+			padding: 5px 10px;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+		}
+
+		.btn_alterar:hover {
+			background-color: var(--button-hover-color);
+		}
 	</style>
 </head>
 
 <body>
-	<h2>Lista de Contatos</h2>
+	<h1>Lista de Contatos</h1>
 	<div th:unless='${#lists.isEmpty(contatos)}'>
 		<table>
 			<tr>
@@ -63,9 +94,16 @@
 				<td class="align-middle" th:text="${contato.email}"></td>
 				<td class="align-middle" th:text="${contato.telefone}"></td>
 				<td class="align-middle" th:text="${contato.endereco}"></td>
-				<td class="align-middle"><a th:ref="@{contato/{id}(id=${contato.id})}" th:method="delete">Excluir</a>
+				<td class="align-middle">
+					<form action="#" th:action="@{'/contato/{id}'(id=${contato.id})}" th:method="delete">
+						<button type="submit" class="btn_excluir">Excluir</button>
+					</form>
 				</td>
-				<td class="align-middle"><a th:ref="@{contato/{id}(id=${contato.id})}" th:method="put">Alterar</a></td>
+				<td class="align-middle">
+					<form action="#" th:action="@{'/contato/change/{id}'(id=${contato.id})}" th:method="put">
+						<button type="submit" class="btn_alterar">Alterar</button>
+					</form>
+				</td>
 			</tr>
 		</table>
 	</div>
